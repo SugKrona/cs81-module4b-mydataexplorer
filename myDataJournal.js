@@ -53,6 +53,10 @@ function averageSleep(data) {
   const total = data.reduce((sum, entry) => sum + entry.sleepHours, 0);
   return (total / data.length).toFixed(2);
 }
+//Which day had the most sleep? // (added after)
+function mostSleepDay(data) {
+  return data.reduce((max, entry) => entry.sleepHours > max.sleepHours ? entry : max).day;
+}
 // Which day had the least sleep?
 function leastSleepDay(data) {
   let minDay = data[0];
@@ -73,6 +77,10 @@ function caffeineVsFocus(data) {
 console.log("Most screen time:", mostScreenTime(weekData));
 console.log("Average focus level:", averageFocus(weekData));
 console.log("Average sleep hours:", averageSleep(weekData));
+console.log("Most sleep day:", mostSleepDay(weekData));
 console.log("Least sleep day:", leastSleepDay(weekData));
 console.log("Caffeine vs Focus:");
 caffeineVsFocus(weekData);
+
+
+
